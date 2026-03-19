@@ -4,23 +4,33 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "ws:dev": "node --env-file=.env chat-ws-server.mjs",
+    "dev:all": "concurrently -n web,ws -c cyan,magenta \"npm run dev\" \"npm run ws:dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.3",
     "next": "16.2.0",
+    "openai": "^6.32.0",
+    "prisma": "^6.16.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "ws": "^8.19.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/ws": "^8.18.1",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.0",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
